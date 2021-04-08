@@ -1,168 +1,568 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.8.1 on win32)" generated="20210408 12:12:32.123" rpa="false">
-<suite id="s1" name="Test" source="C:\agilis\TestCases\test.robot">
-<test id="s1-t1" name="Test1">
+<robot generator="Robot 4.0 (Python 3.8.1 on win32)" generated="20210408 21:04:13.328" rpa="false" schemaversion="2">
+<suite id="s1" name="Agilis Case" source="C:\agilis\TestCases\agilis_case.robot">
+<test id="s1-t1" name="Verify Agilis Home Page">
+<kw name="Open Web">
 <kw name="Open Browser" library="SeleniumLibrary">
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<arguments>
-<arg>${LOGIN URL}</arg>
+<arg>${WEB}</arg>
 <arg>${BROWSER}</arg>
-</arguments>
-<msg timestamp="20210408 12:12:35.140" level="INFO">Opening browser 'Chrome' to base url 'https://agilischemicals.com/palmer-holland/portfolio'.</msg>
-<status status="PASS" starttime="20210408 12:12:35.140" endtime="20210408 12:14:26.941"></status>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210408 21:04:13.839" level="INFO">Opening browser 'Chrome' to base url 'https://agilischemicals.com/'.</msg>
+<status status="PASS" starttime="20210408 21:04:13.839" endtime="20210408 21:04:25.498"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210408 12:14:26.942" endtime="20210408 12:14:27.191"></status>
+<status status="PASS" starttime="20210408 21:04:25.498" endtime="20210408 21:04:25.755"/>
+</kw>
+<kw name="Get DateTime">
+<var>${Date}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${date1}</var>
+<arg>result_format=%Y-%m-%d %H-%M-%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20210408 21:04:25.755" level="INFO">${date1} = 2021-04-08 21-04-25</msg>
+<status status="PASS" starttime="20210408 21:04:25.755" endtime="20210408 21:04:25.755"/>
+</kw>
+<msg timestamp="20210408 21:04:25.755" level="INFO">${Date} = 2021-04-08 21-04-25</msg>
+<status status="PASS" starttime="20210408 21:04:25.755" endtime="20210408 21:04:25.755"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:25.755" endtime="20210408 21:04:25.763"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${Path}</arg>
+<arg>${PATH}/screenshot/${Date}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20210408 21:04:25.763" level="INFO">${Path} = C:/agilis//screenshot/2021-04-08 21-04-25</msg>
+<status status="PASS" starttime="20210408 21:04:25.763" endtime="20210408 21:04:25.763"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:13.839" endtime="20210408 21:04:25.771"/>
+</kw>
+<kw name="Validate Home Page Title">
+<arg>Agilis | eCommerce Platform Provider for the Chemical Industry</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210408 21:04:25.771" endtime="20210408 21:04:25.854"/>
+</kw>
+<kw name="Get Window Titles" library="SeleniumLibrary">
+<var>@{Windowtitles}</var>
+<doc>Returns and logs titles of all windows of the selected browser.</doc>
+<msg timestamp="20210408 21:04:25.894" level="INFO">Altogether 1 item.
+1: Agilis | eCommerce Platform Provider for the Chemical Industry</msg>
+<msg timestamp="20210408 21:04:25.894" level="INFO">@{Windowtitles} = [ Agilis | eCommerce Platform Provider for the Chemical Industry ]</msg>
+<status status="PASS" starttime="20210408 21:04:25.854" endtime="20210408 21:04:25.894"/>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${Page Title}</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<arguments>
-<arg>Agilis | eCommerce Platform Provider for the Chemical Industry</arg>
-</arguments>
-<msg timestamp="20210408 12:14:27.224" level="INFO">Page title is 'Agilis | eCommerce Platform Provider for the Chemical Industry'.</msg>
-<status status="PASS" starttime="20210408 12:14:27.192" endtime="20210408 12:14:27.224"></status>
+<msg timestamp="20210408 21:04:25.902" level="INFO">Page title is 'Agilis | eCommerce Platform Provider for the Chemical Industry'.</msg>
+<status status="PASS" starttime="20210408 21:04:25.894" endtime="20210408 21:04:25.902"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:25.771" endtime="20210408 21:04:25.902"/>
+</kw>
+<kw name="Screenshot">
+<arg>Home_Page</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:25.902" endtime="20210408 21:04:25.902"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:25.902" endtime="20210408 21:04:25.966"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:27.025" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/Home_Page.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/Home_Page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:25.966" endtime="20210408 21:04:27.025"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:27.025" endtime="20210408 21:04:27.025"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:25.902" endtime="20210408 21:04:27.025"/>
 </kw>
 <kw name="Current Frame Should Contain" library="SeleniumLibrary">
-<doc>Verifies that the current frame contains ``text``.</doc>
-<arguments>
 <arg>This website uses cookies to enhance the user experience.These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media.</arg>
-</arguments>
-<msg timestamp="20210408 12:14:27.265" level="INFO">Current frame contains text 'This website uses cookies to enhance the user experience.These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media.'.</msg>
-<status status="PASS" starttime="20210408 12:14:27.225" endtime="20210408 12:14:27.265"></status>
+<doc>Verifies that the current frame contains ``text``.</doc>
+<msg timestamp="20210408 21:04:27.057" level="INFO">Current frame contains text 'This website uses cookies to enhance the user experience.These cookies are used to collect information about how you interact with our website and allow us to remember you. We use this information in order to improve and customize your browsing experience and for analytics and metrics about our visitors both on this website and other media.'.</msg>
+<status status="PASS" starttime="20210408 21:04:27.025" endtime="20210408 21:04:27.057"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
-<arguments>
 <arg>xpath://button[@id='']</arg>
-</arguments>
-<msg timestamp="20210408 12:14:27.266" level="INFO">Clicking button 'xpath://button[@id='']'.</msg>
-<status status="PASS" starttime="20210408 12:14:27.265" endtime="20210408 12:14:27.410"></status>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210408 21:04:27.065" level="INFO">Clicking button 'xpath://button[@id='']'.</msg>
+<status status="PASS" starttime="20210408 21:04:27.057" endtime="20210408 21:04:27.139"/>
 </kw>
+<kw name="Screenshot">
+<arg>Home_Page_With_No_Cookies_Shadow</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:27.139" endtime="20210408 21:04:27.139"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:27.139" endtime="20210408 21:04:27.163"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:27.931" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/Home_Page_With_No_Cookies_Shadow.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/Home_Page_With_No_Cookies_Shadow.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:27.163" endtime="20210408 21:04:27.931"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:27.931" endtime="20210408 21:04:27.931"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:27.139" endtime="20210408 21:04:27.931"/>
+</kw>
+<doc>Enabling page cookies</doc>
+<status status="PASS" starttime="20210408 21:04:13.839" endtime="20210408 21:04:27.931"/>
+</test>
+<test id="s1-t2" name="Verify Our Truested Partners">
+<kw name="Scroll Element into View">
+<arg>//div[@class='_2ClPktuQN1IdZ1KO1AWQA-']</arg>
+<arg>1000</arg>
+<arg>Trusted_Partners</arg>
+<doc>Scroll to the object to focus on onject and take screenshot</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${YourElement}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210408 21:04:27.939" endtime="20210408 21:04:27.971"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0,${ScrollUpTo})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20210408 21:04:27.971" level="INFO">Executing JavaScript:
+window.scrollTo(0,1000)
+Without any arguments.</msg>
+<status status="PASS" starttime="20210408 21:04:27.971" endtime="20210408 21:04:27.979"/>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<arg>${YourElement}</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20210408 21:04:27.979" endtime="20210408 21:04:28.011"/>
+</kw>
+<kw name="Screenshot">
+<arg>${ElementName}</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:28.011" endtime="20210408 21:04:28.011"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:28.011" endtime="20210408 21:04:28.051"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:28.635" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/Trusted_Partners.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/Trusted_Partners.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:28.051" endtime="20210408 21:04:28.635"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:28.635" endtime="20210408 21:04:28.635"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:28.011" endtime="20210408 21:04:28.635"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:27.939" endtime="20210408 21:04:28.635"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210408 21:04:30.640" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210408 21:04:28.635" endtime="20210408 21:04:30.640"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//div[@class="_2ClPktuQN1IdZ1KO1AWQA-"]/h2)[1]</arg>
+<arg>Our Trusted Partners</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20210408 21:04:30.640" level="INFO">Verifying element 'xpath:(//div[@class="_2ClPktuQN1IdZ1KO1AWQA-"]/h2)[1]' contains exact text 'Our Trusted Partners'.</msg>
+<status status="PASS" starttime="20210408 21:04:30.640" endtime="20210408 21:04:30.679"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://a[@href="/palmer-holland"]</arg>
+<arg>timeout=15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210408 21:04:30.679" endtime="20210408 21:04:32.007"/>
+</kw>
+<kw name="Screenshot">
+<arg>palmer-holland_Image</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:32.007" endtime="20210408 21:04:32.007"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:32.007" endtime="20210408 21:04:32.047"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:32.669" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/palmer-holland_Image.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/palmer-holland_Image.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:32.047" endtime="20210408 21:04:32.669"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:32.669" endtime="20210408 21:04:32.669"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:32.007" endtime="20210408 21:04:32.669"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${url}</var>
+<arg>xpath=//a[contains(@href, 'r-h')]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20210408 21:04:32.745" level="INFO">${url} = https://agilischemicals.com/palmer-holland</msg>
+<status status="PASS" starttime="20210408 21:04:32.669" endtime="20210408 21:04:32.745"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${url}</arg>
+<arg>https://agilischemicals.com/palmer-holland</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20210408 21:04:32.745" endtime="20210408 21:04:32.745"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://a[@href="/palmer-holland"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210408 21:04:32.745" endtime="20210408 21:04:32.809"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://a[@href="/palmer-holland"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210408 21:04:32.809" level="INFO">Clicking element 'xpath://a[@href="/palmer-holland"]'.</msg>
+<status status="PASS" starttime="20210408 21:04:32.809" endtime="20210408 21:04:33.080"/>
+</kw>
+<doc>Examine the parsed home page HTML markup code, assert that a &lt;h2&gt; tag exists with the verbiage of “Trusted Partners”, e.g. &lt;h2&gt;Our Trusted Partners&lt;/h2&gt;</doc>
+<status status="PASS" starttime="20210408 21:04:27.939" endtime="20210408 21:04:33.080"/>
+</test>
+<test id="s1-t3" name="Verify palmer holland home page">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210408 21:04:38.098" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210408 21:04:33.088" endtime="20210408 21:04:38.098"/>
+</kw>
+<kw name="Switch Window" library="SeleniumLibrary">
+<arg>title=Palmer Holland Health &amp; Nutrition eCommerce Portal Home</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" starttime="20210408 21:04:38.098" endtime="20210408 21:04:38.354"/>
+</kw>
+<kw name="Validate Home Page Title">
+<arg>Palmer Holland Health &amp; Nutrition eCommerce Portal Home</arg>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210408 21:04:38.354" endtime="20210408 21:04:38.354"/>
+</kw>
+<kw name="Get Window Titles" library="SeleniumLibrary">
+<var>@{Windowtitles}</var>
+<doc>Returns and logs titles of all windows of the selected browser.</doc>
+<msg timestamp="20210408 21:04:38.498" level="INFO">Altogether 2 items.
+1: Agilis | eCommerce Platform Provider for the Chemical Industry
+2: Palmer Holland Health &amp; Nutrition eCommerce Portal Home</msg>
+<msg timestamp="20210408 21:04:38.498" level="INFO">@{Windowtitles} = [ Agilis | eCommerce Platform Provider for the Chemical Industry | Palmer Holland Health &amp; Nutrition eCommerce Portal Home ]</msg>
+<status status="PASS" starttime="20210408 21:04:38.354" endtime="20210408 21:04:38.498"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${Page Title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20210408 21:04:38.506" level="INFO">Page title is 'Palmer Holland Health &amp; Nutrition eCommerce Portal Home'.</msg>
+<status status="PASS" starttime="20210408 21:04:38.498" endtime="20210408 21:04:38.506"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:38.354" endtime="20210408 21:04:38.506"/>
+</kw>
+<kw name="Screenshot">
+<arg>Home_Page</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:38.506" endtime="20210408 21:04:38.506"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:38.506" endtime="20210408 21:04:38.538"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:39.663" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/Home_Page.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/Home_Page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:38.538" endtime="20210408 21:04:39.663"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:39.663" endtime="20210408 21:04:39.663"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:38.506" endtime="20210408 21:04:39.663"/>
+</kw>
+<doc>Examine the parsed storefront home page in the step above, find a button with “View Products”, e.g. &lt;button&gt;View Products&lt;/button&gt;.</doc>
+<status status="PASS" starttime="20210408 21:04:33.088" endtime="20210408 21:04:39.663"/>
+</test>
+<test id="s1-t4" name="Navigate to palmer holland portfolio page">
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<arguments>
-<arg>//div[@class='_1eyvFfpdFnz2Eu9SWFJhRr']</arg>
+<var>${condition}</var>
+<arg>xpath://a[@href='/palmer-holland/portfolio']</arg>
 <arg>timeout=5</arg>
 <arg>error=false</arg>
-</arguments>
-<status status="PASS" starttime="20210408 12:14:27.410" endtime="20210408 12:14:27.427"></status>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<msg timestamp="20210408 21:04:39.695" level="INFO">${condition} = None</msg>
+<status status="PASS" starttime="20210408 21:04:39.671" endtime="20210408 21:04:39.695"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${condition}'=='false'</arg>
+<arg>click element</arg>
+<arg>(//*[@id="Layer_1"])[1]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20210408 21:04:39.695" endtime="20210408 21:04:39.703"/>
 </kw>
 <kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath://a[@href='/palmer-holland/portfolio']</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://a[@href='/palmer-holland/portfolio']</arg>
-</arguments>
-<msg timestamp="20210408 12:14:27.428" level="INFO">Clicking link 'xpath://a[@href='/palmer-holland/portfolio']'.</msg>
-<status status="PASS" starttime="20210408 12:14:27.427" endtime="20210408 12:14:27.572"></status>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<arguments>
-<arg>xpath://a[@href='/palmer-holland/portfolio']</arg>
-</arguments>
-<assign>
-<var>${text}</var>
-</assign>
-<msg timestamp="20210408 12:14:27.593" level="INFO">${text} = PORTFOLIO</msg>
-<status status="PASS" starttime="20210408 12:14:27.573" endtime="20210408 12:14:27.593"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>${text}</arg>
-</arguments>
-<status status="PASS" starttime="20210408 12:14:27.594" endtime="20210408 12:14:27.594"></status>
+<msg timestamp="20210408 21:04:39.703" level="INFO">Clicking link 'xpath://a[@href='/palmer-holland/portfolio']'.</msg>
+<status status="PASS" starttime="20210408 21:04:39.703" endtime="20210408 21:04:40.005"/>
 </kw>
 <kw name="Element Text Should Be" library="SeleniumLibrary">
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<arguments>
-<arg>xpath://a[@href='/palmer-holland/portfolio']</arg>
+<arg>//a[@href='/palmer-holland/portfolio']</arg>
 <arg>PORTFOLIO</arg>
-</arguments>
-<msg timestamp="20210408 12:14:27.595" level="INFO">Verifying element 'xpath://a[@href='/palmer-holland/portfolio']' contains exact text 'PORTFOLIO'.</msg>
-<status status="PASS" starttime="20210408 12:14:27.594" endtime="20210408 12:14:27.597"></status>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20210408 21:04:40.005" level="INFO">Verifying element '//a[@href='/palmer-holland/portfolio']' contains exact text 'PORTFOLIO'.</msg>
+<status status="PASS" starttime="20210408 21:04:40.005" endtime="20210408 21:04:40.085"/>
+</kw>
+<kw name="Screenshot">
+<arg>portfolio_page</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:40.085" endtime="20210408 21:04:40.093"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:40.093" endtime="20210408 21:04:40.133"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:40.669" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/portfolio_page.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/portfolio_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:40.133" endtime="20210408 21:04:40.669"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:40.669" endtime="20210408 21:04:40.677"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:40.085" endtime="20210408 21:04:40.677"/>
+</kw>
+<doc>Click on the button above, then it should go to</doc>
+<status status="PASS" starttime="20210408 21:04:39.671" endtime="20210408 21:04:40.677"/>
+</test>
+<test id="s1-t5" name="Verify portfolio micro window">
+<kw name="Scroll Element into View">
+<arg>(//div[@class="MuiCardHeader-content"]//span[contains(text(),'CARAMEL COLOR I')])[1]</arg>
+<arg>1000</arg>
+<arg>CARAMEL_COLOR_I_Window</arg>
+<doc>Scroll to the object to focus on onject and take screenshot</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${YourElement}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210408 21:04:40.685" endtime="20210408 21:04:42.613"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0,${ScrollUpTo})</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20210408 21:04:42.613" level="INFO">Executing JavaScript:
+window.scrollTo(0,1000)
+Without any arguments.</msg>
+<status status="PASS" starttime="20210408 21:04:42.613" endtime="20210408 21:04:42.621"/>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<arg>${YourElement}</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20210408 21:04:42.621" endtime="20210408 21:04:42.637"/>
+</kw>
+<kw name="Screenshot">
+<arg>${ElementName}</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:42.637" endtime="20210408 21:04:42.637"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:42.637" endtime="20210408 21:04:42.661"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:43.265" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/CARAMEL_COLOR_I_Window.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/CARAMEL_COLOR_I_Window.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:42.661" endtime="20210408 21:04:43.265"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:43.265" endtime="20210408 21:04:43.265"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:42.637" endtime="20210408 21:04:43.265"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:40.685" endtime="20210408 21:04:43.265"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
 <arg>(//div[@class="MuiCardHeader-content"]//span[contains(text(),'CARAMEL COLOR I')])[1]</arg>
-</arguments>
-<msg timestamp="20210408 12:14:27.628" level="INFO">Element '(//div[@class="MuiCardHeader-content"]//span[contains(text(),'CARAMEL COLOR I')])[1]' is displayed.</msg>
-<status status="PASS" starttime="20210408 12:14:27.597" endtime="20210408 12:14:27.628"></status>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210408 21:04:43.289" level="INFO">Element '(//div[@class="MuiCardHeader-content"]//span[contains(text(),'CARAMEL COLOR I')])[1]' is displayed.</msg>
+<status status="PASS" starttime="20210408 21:04:43.265" endtime="20210408 21:04:43.289"/>
 </kw>
+<status status="PASS" starttime="20210408 21:04:40.685" endtime="20210408 21:04:43.297"/>
+</test>
+<test id="s1-t6" name="Navigate to the product details page to request quote">
 <kw name="Click Link" library="SeleniumLibrary">
-<doc>Clicks a link identified by ``locator``.</doc>
-<arguments>
 <arg>xpath://a[@href="/palmer-holland/product/caramel-color-i-palmer-holland-inc"]</arg>
-</arguments>
-<msg timestamp="20210408 12:14:27.628" level="INFO">Clicking link 'xpath://a[@href="/palmer-holland/product/caramel-color-i-palmer-holland-inc"]'.</msg>
-<status status="PASS" starttime="20210408 12:14:27.628" endtime="20210408 12:14:28.083"></status>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20210408 21:04:43.297" level="INFO">Clicking link 'xpath://a[@href="/palmer-holland/product/caramel-color-i-palmer-holland-inc"]'.</msg>
+<status status="PASS" starttime="20210408 21:04:43.297" endtime="20210408 21:04:44.147"/>
+</kw>
+<kw name="Screenshot">
+<arg>Product_details_page</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:44.147" endtime="20210408 21:04:44.147"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:44.147" endtime="20210408 21:04:44.163"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:44.813" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/Product_details_page.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/Product_details_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:44.163" endtime="20210408 21:04:44.813"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:44.813" endtime="20210408 21:04:44.813"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:44.147" endtime="20210408 21:04:44.813"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
 <arg>5s</arg>
-</arguments>
-<msg timestamp="20210408 12:14:33.094" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210408 12:14:28.084" endtime="20210408 12:14:33.094"></status>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210408 21:04:49.819" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210408 21:04:44.813" endtime="20210408 21:04:49.819"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<arguments>
 <arg>xpath://button[contains(text(),'Request Quote')]</arg>
-</arguments>
-<msg timestamp="20210408 12:14:33.122" level="INFO">Element 'xpath://button[contains(text(),'Request Quote')]' is displayed.</msg>
-<status status="PASS" starttime="20210408 12:14:33.095" endtime="20210408 12:14:33.122"></status>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210408 21:04:49.914" level="INFO">Element 'xpath://button[contains(text(),'Request Quote')]' is displayed.</msg>
+<status status="PASS" starttime="20210408 21:04:49.819" endtime="20210408 21:04:49.914"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
-<doc>Clicks the button identified by ``locator``.</doc>
-<arguments>
 <arg>xpath://button[contains(text(),'Request Quote')]</arg>
-</arguments>
-<msg timestamp="20210408 12:14:33.123" level="INFO">Clicking button 'xpath://button[contains(text(),'Request Quote')]'.</msg>
-<status status="PASS" starttime="20210408 12:14:33.123" endtime="20210408 12:14:33.239"></status>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210408 21:04:49.922" level="INFO">Clicking button 'xpath://button[contains(text(),'Request Quote')]'.</msg>
+<status status="PASS" starttime="20210408 21:04:49.922" endtime="20210408 21:04:50.123"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>20s</arg>
-</arguments>
-<msg timestamp="20210408 12:14:53.247" level="INFO">Slept 20 seconds</msg>
-<status status="PASS" starttime="20210408 12:14:33.240" endtime="20210408 12:14:53.247"></status>
+<msg timestamp="20210408 21:04:55.136" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210408 21:04:50.123" endtime="20210408 21:04:55.136"/>
 </kw>
-<kw name="Element Text Should Be" library="SeleniumLibrary">
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<arguments>
-<arg>//div[contains(text(),'Quote Request')]</arg>
-<arg>Quote Request</arg>
-</arguments>
-<msg timestamp="20210408 12:14:53.247" level="INFO">Verifying element '//div[contains(text(),'Quote Request')]' contains exact text 'Quote Request'.</msg>
-<status status="PASS" starttime="20210408 12:14:53.247" endtime="20210408 12:14:53.300"></status>
+<kw name="Screenshot">
+<arg>Request_quote_page</arg>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${Path}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20210408 21:04:55.136" endtime="20210408 21:04:55.144"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Element</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20210408 21:04:55.144" endtime="20210408 21:04:55.208"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${filename}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210408 21:04:55.732" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshot/2021-04-08%2021-04-25/Request_quote_page.png"&gt;&lt;img src="../screenshot/2021-04-08%2021-04-25/Request_quote_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210408 21:04:55.208" endtime="20210408 21:04:55.732"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
+<arg>${\n}Screenshot</arg>
 <doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>OK</arg>
-</arguments>
-<status status="PASS" starttime="20210408 12:14:53.300" endtime="20210408 12:14:53.300"></status>
+<status status="PASS" starttime="20210408 21:04:55.732" endtime="20210408 21:04:55.732"/>
 </kw>
-<status status="PASS" starttime="20210408 12:12:35.139" endtime="20210408 12:14:53.300" critical="yes"></status>
+<status status="PASS" starttime="20210408 21:04:55.136" endtime="20210408 21:04:55.732"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//div[contains(text(),'Quote Request')]</arg>
+<arg>Quote Request</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20210408 21:04:55.732" level="INFO">Verifying element '//div[contains(text(),'Quote Request')]' contains exact text 'Quote Request'.</msg>
+<status status="PASS" starttime="20210408 21:04:55.732" endtime="20210408 21:04:55.796"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>OK</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20210408 21:04:55.796" endtime="20210408 21:04:55.796"/>
+</kw>
+<doc>On the product detail page, assert there a request quote button, e.g. &lt;button&gt;Request Quote&lt;/button&gt;. Also assert it’s clickable, clicking it load a form</doc>
+<status status="PASS" starttime="20210408 21:04:43.297" endtime="20210408 21:04:55.804"/>
 </test>
-<status status="PASS" starttime="20210408 12:12:32.126" endtime="20210408 12:14:53.300"></status>
+<test id="s1-t7" name="Close all browser">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20210408 21:04:55.804" endtime="20210408 21:04:58.409"/>
+</kw>
+<status status="PASS" starttime="20210408 21:04:55.804" endtime="20210408 21:04:58.409"/>
+</test>
+<status status="PASS" starttime="20210408 21:04:13.328" endtime="20210408 21:04:58.417"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Test">Test</stat>
+<stat pass="7" fail="0" skip="0" id="s1" name="Agilis Case">Agilis Case</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20210408 12:12:32.053" level="ERROR">Error in file 'C:\agilis\TestCases\test.robot': Non-existing setting '--outputdir C:\agilis\sample_report --timestampoutputs'.</msg>
+<msg timestamp="20210408 21:04:13.312" level="ERROR">Error in file 'C:\agilis\TestCases\agilis_case.robot' on line 27: Setting 'Documentation' is allowed only once. Only the first value is used.</msg>
+<msg timestamp="20210408 21:04:13.312" level="ERROR">Error in file 'C:\agilis\TestCases\agilis_case.robot' on line 32: Setting 'Documentation' is allowed only once. Only the first value is used.</msg>
+<msg timestamp="20210408 21:04:13.312" level="ERROR">Error in file 'C:\agilis\TestCases\agilis_case.robot' on line 48: Setting 'Documentation' is allowed only once. Only the first value is used.</msg>
+<msg timestamp="20210408 21:04:13.831" level="ERROR">Error in file 'C:\agilis\TestCases\agilis_case.robot' on line 4: Importing library 'Selenium2Library' failed: ModuleNotFoundError: No module named 'Selenium2Library'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\agilis\venv\Scripts\robot.exe
+  C:\Python\Python38-32\python38.zip
+  C:\Python\Python38-32\DLLs
+  C:\Python\Python38-32\lib
+  C:\Python\Python38-32
+  c:\agilis\venv
+  c:\agilis\venv\lib\site-packages
+  c:\agilis\venv\lib\site-packages\setuptools-40.8.0-py3.8.egg
+  c:\agilis\venv\lib\site-packages\pip-19.0.3-py3.8.egg</msg>
 </errors>
 </robot>
