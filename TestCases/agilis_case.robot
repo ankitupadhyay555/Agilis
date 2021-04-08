@@ -1,8 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
 Library     DateTime
-Library     SeleniumLibrary
-Library     DateTime
 
 *** Variables ***
 ${WEB}      https://agilischemicals.com/
