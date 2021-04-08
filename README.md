@@ -17,7 +17,8 @@
 # How to install
 	Go to the project root
 	run the command pip install -r requirement.txt as Admininstrator or root.
-
+# Setup
+	Place the folder to the 'C:\' directory
 # How to run
   ### Headless mode
     run the command "robot -d C:\agilis\sample_report  C:\agilis\TestCases\agilis.robot"
