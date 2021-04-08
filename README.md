@@ -1,26 +1,28 @@
-# Agilis Web Testing Assignment using Robot Framwork
+# Agilis Web Testing Assignment using Robot Framework
 
 # Environment
 	Windows
-# Dependecy
+# Dependency
 	Python3
+        pip 20.3.3
+# How to install
+	Open CMD as Administrator.
+	Run the command “pip install <package name you want to install> “
+# Packages need to install using PIP.
 	Robot framework
-
-# Libraries Used.
+# Library need to install using PIP
 	SeleniumLibrary
 	DateTime
-
 # Techniques used
 	Basic Selenium Library API's
 	DateTime Library API's
-
-# How to install
-	Go to the project root
-	run the command pip install -r requirement.txt as Admininstrator or root.
-# Setup
-	Place the folder to the 'C:\' directory
+# Setup Environment variable 
+1.	Open Environment Variables
+2.	Select path
+3.	Edit it
+4.	Add ‘<PATH> \drivers’
+5.	Save it.
+	
 # How to run
-  ### Headless mode
-    run the command "robot -d C:\agilis\sample_report  C:\agilis\TestCases\agilis.robot"
-  ### Running from the Bat file
-    Double click on "run.bat" file (C:\agilis)
+    run the command "robot -d <PATH>\sample_report  <PATH>\agilis.robot"
+
