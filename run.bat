@@ -1,0 +1,1 @@
+robot -d C:\agilis\sample_report  C:\agilis\TestCases\test.robot
